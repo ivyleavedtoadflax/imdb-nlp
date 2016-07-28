@@ -11,21 +11,21 @@ example1 = BeautifulSoup(train['review'][0])
 print(train['review'][0])
 print(example1.get_text())
 import re
-letters_only = re.sub("[^a-zA-Z]"), " ", example1.get_text())
-letters_only = re.sub("[^a-zA-Z]"), " ", example1.get_text() )
+
 letters_only = re.sub("[^a-zA-Z]", " ", example1.get_text() )
+
 letters_only
 print(letters_only)
 lower_case = letters_only.lower()
 words = lower_case.split()
 words
-import ntlk
+
 import nltk
-nltk.download()
 from nltk.corpus import stopwords
 print(stopwords.words('english'))
 words = [w for w in words if not w in stopwords.words('english')]
 words
+
 def review_to_words( raw_review ):
         # Function to convert a raw review to a string of words
         # The input is a single string (a raw movie review), and 
@@ -52,16 +52,13 @@ def review_to_words( raw_review ):
         return( " ".join( meaningful_words ))
 clean_review = review_to_words(train['review'][0])
 print(clean_review)
+
 num_reviews = train['review'].size
 num_reviews
 clean_train_reviews = []
-for i in xrange(0, num_reviews):
-    clean_train_reviews.append( review_to_words( train['review'][i] ) )
     
 for i in range(0, num_reviews):
     clean_train_reviews.append( review_to_words( train['review'][i] ) )
     
 print('# https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-1-for-beginners-bag-of-words')
-get_ipython().magic('save session')
-get_ipython().magic('save my_session')
-get_ipython().magic('save my_session 1-39')
+
